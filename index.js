@@ -30,10 +30,22 @@ class LinkedList {
     current.nextNode = newNode;
   }
 
-
   //  Add a new node containing value to the start of the list
   prepend(value) {
     const newNode = new Node(value, this.head);
     this.head = newNode;
   }
+
+  //  Returns the total number of nodes in the list
+  size() {
+    let count = 0;
+    let current = this.head;
+    
+    while(current) {
+      count++;
+      current = current.nextNode;
+    }
+    return count;
+  }
+
 }
