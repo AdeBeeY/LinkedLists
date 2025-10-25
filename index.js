@@ -117,4 +117,17 @@ class LinkedList {
     }
     return null;
   }
+
+  //  Represents your LinkedList objects as strings, so you can print them out and preview them in the console. The format should be: ( value ) -> ( value ) -> ( value ) -> null
+  toString() {
+    let current = this.head;
+    let str = "";
+
+    while (current) {
+      str += ` ( ${current.value} ) -> `;
+      current = current.nextNode;
+    }
+    str += "null";
+    return str;
+  }
 }
