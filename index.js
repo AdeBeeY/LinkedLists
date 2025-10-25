@@ -1,7 +1,7 @@
 class Node {
-  constructor (value) {
+  constructor (value = null, nextNode = null) {
     this.value = value;
-    this.nextNode = null;
+    this.nextNode = nextNode;
   }
 }
 
@@ -28,5 +28,12 @@ class LinkedList {
 
     //  link the nextnode with the new node
     current.nextNode = newNode;
+  }
+
+
+  //  Add a new node containing value to the start of the list
+  prepend(value) {
+    const newNode = new Node(value, this.head);
+    this.head = newNode;
   }
 }
