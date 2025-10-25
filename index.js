@@ -40,7 +40,7 @@ class LinkedList {
   size() {
     let count = 0;
     let current = this.head;
-    
+
     while(current) {
       count++;
       current = current.nextNode;
@@ -48,4 +48,9 @@ class LinkedList {
     return count;
   }
 
+  //  Returns the first node in the list
+  head() {
+    return this.head;
+  }
+  
 }
