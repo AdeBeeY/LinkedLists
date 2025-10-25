@@ -52,5 +52,15 @@ class LinkedList {
   head() {
     return this.head;
   }
-  
+
+  //  Returns the last node in the list
+  tail() {
+    if(!this.head) return null;
+
+    let current = this.head;
+    while(current.nextNode) {
+      current = current.nextNode;
+    }
+    return current;
+  }
 }
