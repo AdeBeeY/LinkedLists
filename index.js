@@ -130,4 +130,70 @@ class LinkedList {
     str += "null";
     return str;
   }
+
+  //  Inserts a new node with the provided value at the given index
+  insertAt(value, index) {
+
+    // If index is 0, then prepend(value)
+    if (index === 0) {
+      this.prepend(value);
+      return;
+    }
+
+    let current = this.head;
+    let count = 0;
+
+    // Find node before the target position
+    while (current && count < index - 1) {
+      current = current.nextNode;
+      count++;
+    }
+
+    // If current is null, index is out of range
+    if (!current) {
+      console.log("Index out of range");
+      return;
+    }
+
+    const newNode = new Node(value, current.nextNode);
+    current.nextNode = newNode;
+
+
+  }
+
+  
+  
+  
+
+  // 🟥 removeAt(index): remove node at given index
+  removeAt(index) {
+    if (!this.head) return null;
+
+    // If removing the head
+    if (index === 0) {
+      this.head = this.head.nextNode;
+      return;
+    }
+
+    let current = this.head;
+    let count = 0;
+
+    // Find node before the one to remove
+    while (current.nextNode && count < index - 1) {
+      current = current.nextNode;
+      count++;
+    }
+
+    // If nextNode doesn’t exist, index out of range
+    if (!current.nextNode) {
+      console.log("Index out of range");
+      return;
+    }
+
+    // Skip the node to remove
+    current.nextNode = current.nextNode.nextNode;
+  }
+
 }
+
+
