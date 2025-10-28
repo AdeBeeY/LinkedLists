@@ -1,5 +1,3 @@
-export { Node, LinkedList };
-
 class Node {
   constructor (value = null, nextNode = null) {
     this.value = value;
@@ -51,12 +49,12 @@ class LinkedList {
   }
 
   //  Returns the first node in the list
-  head() {
+  getHead() {
     return this.head;
   }
 
   //  Returns the last node in the list
-  tail() {
+  getTail() {
     if(!this.head) return null;
 
     let current = this.head;
@@ -84,16 +82,19 @@ class LinkedList {
     if (!this.head) return null;
 
     if(!this.head.nextNode) {
+      const value = this.head.value;
       this.head = null;
-      return;
+      return value;
     }
 
     let current = this.head;
     while (current.nextNode.nextNode) {
       current = current.nextNode;
     }
+
+    const value = current.nextNode.value;
     current.nextNode = null;
-    
+    return value;
   }
 
   //  Returns true if the passed in value is in the list and otherwise returns false
@@ -163,11 +164,7 @@ class LinkedList {
 
   }
 
-  
-  
-  
-
-  // 🟥 removeAt(index): remove node at given index
+  // removeAt(index): remove node at given index
   removeAt(index) {
     if (!this.head) return null;
 
@@ -198,4 +195,4 @@ class LinkedList {
 
 }
 
-
+export { Node, LinkedList };
